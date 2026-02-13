@@ -21,9 +21,7 @@ jobs:
 
   dependent-job:
     runs-on: windows-latest
-    needs: [run-shell-command]
+    needs: run-shell-command
     steps:
       - name: Echo a string
-        run: Write-Output "Windows String"
-      - name: Error Step
-        run: doesnotexist.exe
+        run: Write-Output "Windows String""

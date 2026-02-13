@@ -12,3 +12,18 @@ jobs:
           node -v
           npm -v
           echo "This is a multiline command example."
+
+  parallel-job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: View SW Version
+        run: sw_vers
+
+  dependent-job:
+    runs-on: windows-latest
+    needs: [run-shell-command]
+    steps:
+      - name: Echo a string
+        run: Write-Output "Windows String"
+      - name: Error Step
+        run: doesnotexists
